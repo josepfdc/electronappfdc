@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/josepfdc/electronangularFDC.git"
+    "url": "git+https://github.com/josepfdc/electronappfdc.git"
   },
   "build": {
     "appId": "com.app.appelectron",
