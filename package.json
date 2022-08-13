@@ -17,8 +17,9 @@
     "app:dist": "electron-builder",
     "start:electron": "ng build --base-href ./ && electron .",
     "release:win": "electron-builder --win --x64",
-    "release:mac": "electron-builder --mac"
-
+    "release:mac": "electron-builder --mac",
+    "gh-publish": "electron-builder --win -p always",
+    "release": "build"
   },
   "repository": {
     "type": "git",
@@ -28,45 +29,46 @@
     "appId": "com.app.appelectron",
     "productName": "Appelectron",
     "copyright": "Copyright © 2022 ${author}",
-    "dmg":{
-      "contents":[
-          {
-              "x":130,
-              "y":220
-          },
-          {
-              "x":410,
-              "y":220,
-              "type":"link",
-              "path":"/Applications"
-          }
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
       ]
-  },
-  "win":{
-      "target":[
-          "nsis",
-          "msi"
-      ]
-  },
-  "linux":{
-      "target":[
-          "deb",
-          "rpm",
-          "snap",
-          "AppImage"
+    },
+    "win": {
+      "target": [
+        "nsis"
       ],
-      "category":"Development"
-  },
-  "publish": [
-    "github"
-  ],
-  "files": [
+      "arch": [
+        "x64"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "rpm",
+        "snap",
+        "AppImage"
+      ],
+      "category": "Development"
+    },
+    "publish": [
+      "github"
+    ],
+    "files": [
       "./build/**/*",
       "./dist/**/*",
       "./node_modules/**/*",
       "./assets/**/*",
       "./server/**/*",
-
       "*.js",
       "resources/**/*"
     ],
@@ -85,6 +87,8 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "electron-log": "^4.4.8",
+    "electron-updater": "^5.2.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
