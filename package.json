@@ -57,6 +57,9 @@
       ],
       "category":"Development"
   },
+  "publish": [
+    "github"
+  ],
   "files": [
       "./build/**/*",
       "./dist/**/*",
